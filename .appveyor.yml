@@ -16,7 +16,9 @@ install:
   - appveyor DownloadFile https://github.com/facebook/zstd/releases/download/v1.4.8/zstd-v1.4.8-win64.zip
   - 7z e zstd-v1.4.8-win64.zip -ozstd -y
   - zstd\zstd.exe -d mingw-w64-x86_64-zstd-1.4.8-2-any.pkg.tar.zst
-  - bash -lc "pacman -U mingw-w64-x86_64-zstd-1.4.8-2-any.pkg.tar"
+  - dir
+  - 7z a -tgzip mingw-w64-x86_64-zstd-1.4.8-2-any.pkg.tar.gz mingw-w64-x86_64-zstd-1.4.8-2-any.pkg.tar
+  - bash -lc "pacman -U mingw-w64-x86_64-zstd-1.4.8-2-any.pkg.tar.gz"
   - bash -lc "rm -rf zstd"
   - bash -lc "rm -rf *.tar *.zst"
   # Update known packages
