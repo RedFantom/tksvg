@@ -151,12 +151,15 @@ elif "win" in sys.platform:
                     shutil.copyfile(p, t)
                 else:
                     printf("Copying {}".format(p))
-                    shutil.copyfile(p, os.path.join(target, os.path.basename(p)))
+                    target_file = os.path.join(target, os.path.basename(p))
+                    if target_file == p:
+                        continue
+                    shutil.copyfile(p, target_file)
 
     specials={}  # loaders.cache is used to specify abspaths to the loaders
     specials.update({"libpixbufloader-{}.dll".format(fmt): "/lib/gdk-pixbuf-2.0/2.10.0/loaders/"
                      for fmt in ["ani", "bmp", "gif", "icns", "ico", "jpeg", "png", "pnm", "qtif", "svg", "tga", "tiff", "xbm", "xpm"]})
-    DependencyWalker("libtksvg.dll", specials=specials).copy_to_target("tksvg")
+    DependencyWalker("tksvg/libtksvg.dll", specials=specials).copy_to_target("tksvg")
     kwargs = {"package_data": {"tksvg": ["*.dll", "pkgIndex.tcl", "tksvg.tcl"] + ["{}/{}".format(dir.strip("/"), base) for base, dir in specials.items()]}}
 
 else:
