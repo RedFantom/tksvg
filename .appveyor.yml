@@ -12,6 +12,7 @@ install:
   # Kill gpg-agent due to bug in MSYS
   - TaskKill /IM gpg-agent.exe /F
   # Update known packages
+  - bash -lc "pacman -Sy pacman"
   - bash -lc "pacman --needed --noconfirm -Syu"
   - bash -lc "pacman --needed --noconfirm -Sy"
   # Install Python build dependencies
