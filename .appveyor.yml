@@ -26,7 +26,7 @@ install:
   - zstd\zstd.exe -d pacman-5.2.2-9-x86_64.pkg.tar.zst
   - dir
   - 7z a -tgzip pacman-5.2.2-9-x86_64.pkg.tar.gz pacman-5.2.2-9-x86_64.pkg.tar
-  - bash -lc "cd /c/projects/python-tksvg; ls -l; pacman --noconfirm -U pacman-5.2.2-9-x86_64.pkg.tar.gz"
+  - bash -lc "cd /c/projects/python-tksvg; ls -l; pacman --noconfirm --nodeps -U pacman-5.2.2-9-x86_64.pkg.tar.gz"
   # Cleanup after bug workarounds
   - bash -lc "rm -rf zstd"
   - bash -lc "rm -rf *.tar *.zst"
