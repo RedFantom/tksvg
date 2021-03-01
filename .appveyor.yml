@@ -12,7 +12,7 @@ install:
   # Kill gpg-agent due to bug in MSYS
   - TaskKill /IM gpg-agent.exe /F
   # Download and install zstd for MSYS due to bug in MSYS
-  - appveyor DownloadFile https://repo.msys2.org/mingw/x86_64/mingw-w64-x86_64-zstd-1.4.8-2-any.pkg.tar.zst
+  - appveyor DownloadFile http://repo.msys2.org/mingw/x86_64/mingw-w64-x86_64-zstd-1.4.8-2-any.pkg.tar.zst
   - appveyor DownloadFile https://github.com/facebook/zstd/releases/download/v1.4.8/zstd-v1.4.8-win64.zip
   - 7z e zstd-v1.4.8-win64.zip -o zstd -y
   - zstd/zstd.exe -d mingw-w64-x86_64-zstd-1.4.8-2-any.pkg.tar.zst
