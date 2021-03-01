@@ -18,7 +18,7 @@ install:
   - zstd\zstd.exe -d mingw-w64-x86_64-zstd-1.4.8-2-any.pkg.tar.zst
   - dir
   - 7z a -tgzip mingw-w64-x86_64-zstd-1.4.8-2-any.pkg.tar.gz mingw-w64-x86_64-zstd-1.4.8-2-any.pkg.tar
-  - bash -lc "cd /c/projects/python-tksvg; pacman -U mingw-w64-x86_64-zstd-1.4.8-2-any.pkg.tar.gz"
+  - bash -lc "cd /c/projects/python-tksvg; ls -l; pacman --noconfirm -U mingw-w64-x86_64-zstd-1.4.8-2-any.pkg.tar.gz"
   - bash -lc "rm -rf zstd"
   - bash -lc "rm -rf *.tar *.zst"
   # Update known packages
