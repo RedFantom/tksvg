@@ -22,6 +22,5 @@ def load(window: tk.Tk):
     """Load tksvg into a Tk interpreter"""
     local = os.path.abspath(os.path.dirname(__file__))
     with chdir(local):
-        window.tk.eval("set dir {}".format(local))
         window.tk.eval("source pkgIndex.tcl")
         window.tk.eval("package require tksvg")

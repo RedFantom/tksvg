@@ -120,9 +120,8 @@ ENDIF ( TTK_STUB_LIBRARY )
 # ENDIF ( TK_LIBRARY_STATIC )
 
 FILE ( WRITE tksvg/pkgIndex.tcl
-        "puts $dir
-package ifneeded tksvg ${PKG_VERSION} \\
-  [list load [file join $dir lib${PKG_NAME}[info sharedlibextension]] tksvg]" )
+        "package ifneeded tksvg ${PKG_VERSION} \\
+  [list load [file join [pwd] lib${PKG_NAME}[info sharedlibextension]] tksvg]" )
 
 SET ( LIBRARY_OUTPUT_PATH ${PKG_TARGET_LIB_NAME} )
 INSTALL ( TARGETS ${PKG_TARGET_LIB_NAME}
